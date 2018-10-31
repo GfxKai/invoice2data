@@ -14,11 +14,12 @@ Raises
 ------
 EnvironmentError:
     If pdftotext library is not found
+
+PermissionError:
+    If pdf is encrypted
 """
 def to_text(path):
     from subprocess import Popen, PIPE
-    import logging as logger
-    import shutil
     from distutils import spawn #py2 compat
 
     if spawn.find_executable("pdftotext"): #shutil.which('pdftotext'):
